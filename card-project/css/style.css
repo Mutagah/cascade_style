@@ -185,41 +185,58 @@ footer {
   .profile-card p {
     margin-top: 1rem;
   }
-  
 }
 
 /* large screen display settings */
 @media screen and (min-width: 992px) {
-  body {
-    background-color: firebrick;
-    background-image: radial-gradient(whitesmoke, firebrick);
+  .profile-card {
+    /* A maximum of 400px in width and a minimum of 100% of its parent container */
+    width: min(100%, 400px);
+  }
+
+  .profile-card:nth-child(2) {
+    order: -1;
   }
 }
 
 /* extra large screen display settings */
 @media screen and (min-width: 1200px) {
-  body {
-    background-color: rebeccapurple;
-    background-image: radial-gradient(whitesmoke, rebeccapurple);
+  .profile-card {
+    width: min(calc(33% - 1rem), 500px);
   }
 }
 
 /*
   - combining more than one condition and using max-height and min-aspect-ratio
 */
-
-@media screen and (max-height: 425px) and(min-aspect-ratio:7/4) {
-  body {
+/* mobile device landscape */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+  /* In the min-aspect-ration 7 means > 7 units and 4 would be 4 units */
+  /* body {
     background-color: dodgerblue;
     background-image: radial-gradient(whitesmoke, dodgerblue);
-  }
+  }*/
 
-  h1,
-  h2 {
+  h1 {
     font-size: 1.5rem;
   }
 
   nav {
     display: none;
+  }
+
+  main {
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+  }
+
+  .profile-card {
+    width: min(calc(33% - 0.25rem), 200px);
+  }
+
+  .profile-card figcaption,
+  .profile-card p {
+    font-size: 1.25rem;
   }
 }
