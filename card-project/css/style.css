@@ -55,7 +55,10 @@ footer {
   bottom: 0;
 }
 
-/* media queries */
+/*
+        Media Queries
+  - start from smallest to largest since it is easier to kinda scatter things on a large display rather than squeeze things on a smaller display. 
+*/
 @media screen and (min-width: 576px) {
   /*
   >> 576px is considered as small screen. 
