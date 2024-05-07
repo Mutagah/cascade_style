@@ -3,24 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Css Media Queries</title>
+    <title>Css Mini-project: Profile Cards</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <!-- header section -->
     <header>
-      <h1>Header</h1>
+      <h1>Our staff</h1>
       <nav>
-        <h2>Nav</h2>
+        <a href="#profile1">Joe</a>
+        <a href="#profile2">Matt</a>
+        <a href="#profile3">Jane</a>
       </nav>
     </header>
+
     <!-- main section -->
     <main>
-      <h2>Main</h2>
+      <!-- First Profile -->
+      <article id="profile1" class="profile-card">
+        <figure>
+          <img
+            src="../img/profile1-500x500.png"
+            alt="Joe Coder"
+            width="500"
+            height="500"
+          />
+          <figcaption>Joe Coder</figcaption>
+        </figure>
+        <p><q>I code stuff.</q></p>
+      </article>
+
+      <!-- Second profile -->
+      <article id="profile2" class="profile-card">
+        <figure>
+          <img
+            src="../img/profile2-500x500.png"
+            alt="Matt Designer"
+            width="500"
+            height="500"
+          />
+
+          <figcaption>Matt Designer</figcaption>
+        </figure>
+        <p><q>I design stuff.</q></p>
+      </article>
+
+      <!-- Third profile -->
+      <article id="profile3" class="profile-card">
+        <figure>
+          <img
+            src="../img/profile3-500x500.png"
+            alt="Jane Dev Rel"
+            width="500"
+            height="500"
+          />
+          <figcaption>Jane <span class="nowrap">Dev Rel</span></figcaption>
+        </figure>
+        <p><q>I teach stuff.</q></p>
+      </article>
     </main>
     <!-- footer section -->
     <footer>
-      <h2>Footer</h2>
+      <p>&copy; Acme.co</p>
     </footer>
   </body>
 </html>
