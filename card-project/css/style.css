@@ -10,6 +10,110 @@
 /* general styles */
 body {
   min-height: 100vh;
-  font: 1.5rem 
+  font: 1.5rem "Nunito", sans-serif;
+  background-color: #475569;
+  background-image: radial-gradient(whitesmoke, #475569);
+  /*displey flex by default assumes row direction  */
+  display: flex;
+  flex-direction: column;
 }
 
+header,
+nav,
+main,
+footer {
+  display: grid;
+  place-content: center;
+  /*
+  grid-template-columns: 100% >> ensures that the grid item covers a 100% width  */
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header,
+footer {
+  position: sticky;
+  background-color: #1e293b;
+  color: whitesmoke;
+}
+
+header {
+  top: 0;
+}
+
+nav {
+  background-color: white;
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  bottom: 0;
+}
+
+/* media queries */
+@media screen and (min-width: 576px) {
+  /*
+  >> 576px is considered as small screen. 
+  - Starting from 576px of width have the following changes: 
+  */
+  body {
+    background-color: green;
+    background-image: radial-gradient(whitesmoke, green);
+  }
+  /* unless overwritten, display none in this case would stick for all the media queries */
+  nav {
+    display: none;
+  }
+}
+
+/* medium screen display settings */
+@media screen and (min-width: 768px) {
+  body {
+    background-color: gold;
+    /* 
+      -radial gradient views the page as a circle
+      white smoke is what would be in the middle most of the page and as you go outwards gold would be the color */
+    background-image: radial-gradient(whitesmoke, gold);
+  }
+}
+
+/* large screen display settings */
+@media screen and (min-width: 992px) {
+  body {
+    background-color: firebrick;
+    background-image: radial-gradient(whitesmoke, firebrick);
+  }
+}
+
+/* extra large screen display settings */
+@media screen and (min-width: 1200px) {
+  body {
+    background-color: rebeccapurple;
+    background-image: radial-gradient(whitesmoke, rebeccapurple);
+  }
+}
+
+/*
+  - combining more than one condition and using max-height and min-aspect-ratio
+*/
+
+@media screen and (max-height: 425px) and(min-aspect-ratio:7/4) {
+  body {
+    background-color: dodgerblue;
+    background-image: radial-gradient(whitesmoke, dodgerblue);
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    display: none;
+  }
+}
