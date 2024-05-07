@@ -7,9 +7,29 @@
   box-sizing: border-box;
 }
 
+/* images reset */
+img {
+  /* This removes the little space that is by default under images as images are inline elements*/
+  display: block;
+  /* prevents the overflowing of the image from the figure container in this case */
+  max-width: 100%;
+  /* height auto allows the image height to adjust accordingly when the width changes. */
+  height: auto;
+}
+/* utility classes */
+.nowrap {
+  /* used to prevent the whitespacing break in between words */
+  white-space: nowrap;
+}
+
 /* general styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
+  /* font shoorthand >> font: <font-size> <font-family> */
   font: 1.5rem "Nunito", sans-serif;
   background-color: #475569;
   background-image: radial-gradient(whitesmoke, #475569);
@@ -18,23 +38,24 @@ body {
   flex-direction: column;
 }
 
-header,
+/* header,
 nav,
 main,
 footer {
   display: grid;
-  place-content: center;
-  /*
+  place-content: center; */
+/*
   grid-template-columns: 100% >> ensures that the grid item covers a 100% width  */
-  grid-template-columns: 100%;
+/* grid-template-columns: 100%;
   text-align: center;
-}
+} */
 
 header,
 footer {
   position: sticky;
   background-color: #1e293b;
   color: whitesmoke;
+  text-align: center;
 }
 
 header {
@@ -43,18 +64,70 @@ header {
 
 nav {
   background-color: white;
-  color: black;
+  padding: 0.5rem;
   border-bottom: 2px solid black;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav a,
+nav a:visited {
+  color: black;
+}
+
+nav a:hover,
+nav a:focus {
+  color: hsla(0, 0%, 20%, 0.6);
 }
 
 main {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* align-items mainly focuses on the y axis */
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 footer {
   bottom: 0;
 }
 
+/* profile card syling */
+.profile-card {
+  /* 
+  -when scrolling to either Card, this ensures that there is a margin from the top in that the scrolled content does not go below what is in position sticky
+  */
+  scroll-margin-top: 8rem;
+  width: min(100%, 350px);
+  background: #cbd5e1;
+  border: 2px solid #000;
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card figure {
+  display: flex;
+  /* flex-flow syntax: <direction property> <wrap property> */
+  flex-flow: column nowrap;
+}
+
+.profile-card img {
+  border: 5px double #333;
+  border-radius: 50%;
+}
+
+.profile-card figcaption {
+  font-weight: bolder;
+  font-size: 2rem;
+  margin: 1rem;
+  text-align: center;
+}
 /*
         Media Queries
   - start from smallest to largest since it is easier to kinda scatter things on a large display rather than squeeze things on a smaller display. 
@@ -64,25 +137,55 @@ footer {
   >> 576px is considered as small screen. 
   - Starting from 576px of width have the following changes: 
   */
-  body {
-    background-color: green;
-    background-image: radial-gradient(whitesmoke, green);
+  main {
+    justify-content: center;
+    /* 
+    flex-direction of row
+    flex-wrap - wrap >> Ensures there will be another row if the profile cards will take up more than the width they have.
+     */
+    flex-flow: row wrap;
+    padding: 1rem;
   }
-  /* unless overwritten, display none in this case would stick for all the media queries */
-  nav {
-    display: none;
+
+  .profile-card {
+    /*
+    - At 576px to 767px, let the procile-cards have a maximum width of 400px.
+    */
+    width: min(100%, 400px);
+  }
+
+  .profile-card:last-child {
+    /* Since it is a negative value the targeted element will go even before zero, this property will maintained for all other value unless it is changed explicitly.*/
+    order: -1;
   }
 }
 
 /* medium screen display settings */
 @media screen and (min-width: 768px) {
-  body {
-    background-color: gold;
-    /* 
-      -radial gradient views the page as a circle
-      white smoke is what would be in the middle most of the page and as you go outwards gold would be the color */
-    background-image: radial-gradient(whitesmoke, gold);
+  nav {
+    display: none;
   }
+
+  .profile-card {
+    /* maximum size of 325px */
+    width: min(100%, 325px);
+  }
+
+  .profile-card figure {
+    /* NB: You can use flex-flow with one value in this case, we have only set the direction. */
+    flex-flow: column-reverse;
+    /* column reverse in this case would mean,  having the figcaption start then the image follow in terms of order */
+  }
+
+  .profile-card figcaption {
+    /*0.1em for top and bottom, 0 for left and right */
+    margin: 0.1em 0;
+  }
+
+  .profile-card p {
+    margin-top: 1rem;
+  }
+  
 }
 
 /* large screen display settings */
