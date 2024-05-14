@@ -2,9 +2,16 @@
 
 /* css reset */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+:root {
+  /* font variables */
+  --font-family: "Nunito", sans-serif;
+  /* color variables */
+  --white-background-color: whitesmoke;
 }
 
 /* images reset */
@@ -16,6 +23,7 @@ img {
   /* height auto allows the image height to adjust accordingly when the width changes. */
   height: auto;
 }
+
 /* utility classes */
 .nowrap {
   /* used to prevent the whitespacing break in between words */
@@ -54,7 +62,7 @@ header,
 footer {
   position: sticky;
   background-color: #1e293b;
-  color: whitesmoke;
+  color: var(--white-background-color);
   text-align: center;
 }
 
@@ -71,13 +79,18 @@ nav {
   justify-content: space-evenly;
 }
 
-nav a,
+/*
+  **pseudo classes example use cases**
+    
+  -same as nav a:any-link 
+*/
+nav a:link,
 nav a:visited {
   color: black;
 }
 
-nav a:hover,
-nav a:focus {
+/* same as nav a:hover and nav a:focus */
+nav :is(a:hover, a:focus) {
   color: hsla(0, 0%, 20%, 0.6);
 }
 
@@ -122,16 +135,34 @@ footer {
   border-radius: 50%;
 }
 
+/* selecting all images with the alt attribute */
+.profile-card img[alt] {
+  border: 10px double red;
+}
+
 .profile-card figcaption {
   font-weight: bolder;
   font-size: 2rem;
   margin: 1rem;
   text-align: center;
 }
+
+/* pseudo class example use cases */
+.profile-card figcaption::first-letter {
+  /* This example targets the first-letter within the figcaption which in this case is the emoji inserted below*/
+  font-size: 3rem;
+}
+
+.profile-card figcaption::before {
+  content: "✨";
+  display: block;
+}
+
 /*
         Media Queries
   - start from smallest to largest since it is easier to kinda scatter things on a large display rather than squeeze things on a smaller display. 
 */
+
 @media screen and (min-width: 576px) {
   /*
   >> 576px is considered as small screen. 
