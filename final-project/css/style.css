@@ -1,0 +1,30 @@
+/* Importing google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/* reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  /*
+ - By default images are designed to be inline, hence properties like margin and padding do not affect it.
+ - By explicitly setting the image to a block level element, it means that you are enabling properties like margin,padding and height to be applied to img tags
+  */
+  display: block;
+  /* setting the image maximum width to a 100% of its parent container */
+  max-width: 100%;
+  /* setting height auto will automatically enable your image height to automatically respomg to the image width */
+  height: auto;
+}
+
+input,
+button,
+textarea {
+  /* This elements do not inherit font properties hence you need to explicitly define that when you want them to inherit */
+  font: inherit;
+}
