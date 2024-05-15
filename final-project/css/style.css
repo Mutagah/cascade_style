@@ -28,3 +28,24 @@ textarea {
   /* This elements do not inherit font properties hence you need to explicitly define that when you want them to inherit */
   font: inherit;
 }
+
+/* css variables */
+/* user root pseudo class to define the css variables */
+:root {
+  /* ---font variables--- */
+  --font-family: "Nunito", sans-serif;
+  --font-family-headings: "Fugaz One", cursive;
+  /* clamp prevents us from adding many minoe media queries7u */
+  --font-size: clamp(1rem, 2.2vh, 1.5rem);
+  /* minimum font-size is 1rem,Ideal >> 2.2vh and maximum >> 1.5rem*/
+
+  /* ---color variables---*/
+  --background-color: orange;
+  --background-color-fade: rgb(252, 220, 160);
+  /* Default behaviour is from top to bottom */
+  --background-image: linear-gradient(
+    var(var(--background-color), var(var(--background-color-fade)))
+  );
+  --body-background-color: #fff;
+  --font-color: #000;
+}
