@@ -44,10 +44,19 @@ textarea {
   --background-color-fade: rgb(252, 220, 160);
   /* Default behaviour is from top to bottom */
   --background-image: linear-gradient(
-    var(var(--background-color), var(var(--background-color-fade)))
+    (var(--background-color), var(--background-color-fade))
   );
   --body-background-color: #fff;
   --font-color: #000;
+  --border-color: #333;
+  --highlight-color: rgb(51, 178, 51);
+  --link-color: #000;
+  /* black color with 60% visibilty */
+  --link-hover: hsla(0, 0%, 0%, 0.6);
+  --link-active: orange;
+
+  /* border variables */
+  --border: 1px solid var(--border-color);
 }
 
 /* ---utility classes--- */
@@ -65,4 +74,84 @@ textarea {
 .center {
   /* class used to align text at the center, whether a paragraph or even a heading */
   text-align: center;
+}
+
+/* general styles */
+html {
+  scroll-behavior: smooth;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  /* setting the fallback for background image as a certain background color */
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+}
+
+body {
+  /* The background color for the whole page is white, but when we adjust the width of the body element then it is when we are able to see the html background-color*/
+  background-color: var(--body-background-color);
+  color: var(--font-color);
+  /* minimum height of the body element is 100viewport height units */
+  min-height: 100vh;
+  max-width: 800px;
+  /* 0 margin to the top and bottom, auto margin for left and right */
+  margin: 0 auto;
+  /* setting borders for the body element */
+  border-left: var(--border);
+  border-right: var(--border);
+  box-shadow: 0 0 10px var(--border-color);
+  /* 
+  box-shadow: [horizontal offset] [vertical offset] [blur radius] [spread radius] [color];
+  
+    - horizontal offset
+        >> Position of the shadow horizontally
+            >> positive values move the shadow to the right and negative values move the shadow to the left.
+    - vertical offset
+        >> Position of the shadow vertically
+            >> Positive values move the shadow down and the negative values move it up.
+
+    - blur-radius >> Happens at the edge of the shadow
+        >> The blur effect of the shadow.
+        - The higher the value the more the shadow.
+    
+    - spread-radius
+        >> Size of the shadow
+        positive values expand the shadow, negative values shrink the shadow.
+
+    - color
+        >> optional.
+        Color of the shadow. If not specified the shadow will use the color of the element's text
+  */
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-headings);
+  /* by setting letter spacing with an em unit we are basically making it reative to the font sized used */
+  letter-spacing: 0.1em;
+}
+
+h2,
+h3 {
+  margin-bottom: 1em;
+  color: var(--highlight-color);
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* represents both visited and unvisited */
+a:any-link {
+  color: var(--link-color);
+}
+
+/* focus-visible is more specific than focus in that focus-visible will help in distinguishing keyboard and mouse interactions hence improivng accessibility by showing focus outlines only when they are needed by users navigating with a keyboard */
+a:hover,
+a:focus-visible {
+  color: var(--link-hover);
+}
+
+a:active {
+  color: var(--link-active);
 }
