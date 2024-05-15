@@ -237,3 +237,13 @@ a:active {
     transform: skew(-10deg, -5deg) scaleY(1);
   }
 }
+
+/* footer section */
+.footer {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--header-background-color);
+  color: var(--header-color);
+  padding: var(--padding-top-bottom) var(--padding-side);
+  text-align: center;
+}
