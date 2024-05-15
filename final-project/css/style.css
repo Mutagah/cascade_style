@@ -49,3 +49,20 @@ textarea {
   --body-background-color: #fff;
   --font-color: #000;
 }
+
+/* ---utility classes--- */
+.offscreen {
+  /* offscreen class is used for elements you do not want on the screen but want them picked by a screen reader */
+  position: absolute;
+  left: -10000px;
+}
+
+.nowrap {
+  /* used to prevent text wrapping in awkward places */
+  white-space: nowrap;
+}
+
+.center {
+  /* class used to align text at the center, whether a paragraph or even a heading */
+  text-align: center;
+}
