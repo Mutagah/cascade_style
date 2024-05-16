@@ -63,6 +63,7 @@ textarea {
 
   /* border variables */
   --border: 1px solid var(--border-color);
+  --border-radius: 15px;
 
   /* standard padding */
   --padding-top-bottom: 0.25em;
@@ -270,11 +271,46 @@ a:active {
   min-height: calc(100vh- 20rem);
 }
 
-/* about section */
+/* about page > about section */
 .about__trivia {
   margin: var(--margin);
 }
 
 .about__trivia-answer {
   margin-top: 1em;
+}
+
+/* contact page > form section */
+.contact__h2 {
+  margin: 0;
+}
+
+.contact__fieldset {
+  border: none;
+}
+
+.contact__paragraph {
+  margin: 1em 0;
+}
+
+.contact__label {
+  /* display block gives the label a 100% width of the viewport width */
+  display: block;
+  font-weight: bold;
+}
+
+.contact__input,
+.contact__textarea {
+  padding: 0.5em;
+  border-radius: var(--border-radius);
+  /* Increasing the size of the border thickness */
+  border-width: 2px;
+  width: 100%;
+}
+
+.contact__button {
+  padding: 0.5em;
+  border-radius: var(--border-radius);
+  background-color: var(--highlight-color);
+  color: var(--header-color);
 }
