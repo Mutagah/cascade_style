@@ -247,3 +247,28 @@ a:active {
   padding: var(--padding-top-bottom) var(--padding-side);
   text-align: center;
 }
+
+/* main section */
+.main {
+  padding: var(--padding-top-bottom) var(--padding-side);
+}
+
+.main__article {
+  /* margin top that is to be included when we scroll to a specific ID */
+  scroll-margin-top: 6.5rem;
+  margin: var(--margin);
+}
+
+/* targerting the first-child of the main class */
+.main__article:first-child {
+  margin-top: 1em;
+}
+
+/* motive would be to add more room to the page so that items do not appear squeezed */
+.main__article:nth-child(2) {
+  /* A 100 viewheight units - 20rem */
+  min-height: calc(100vh- 20rem);
+}
+
+
+/* about section */
