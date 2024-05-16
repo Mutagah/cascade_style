@@ -270,5 +270,11 @@ a:active {
   min-height: calc(100vh- 20rem);
 }
 
-
 /* about section */
+.about__trivia {
+  margin: var(--margin);
+}
+
+.about__trivia-answer {
+  margin-top: 1em;
+}
